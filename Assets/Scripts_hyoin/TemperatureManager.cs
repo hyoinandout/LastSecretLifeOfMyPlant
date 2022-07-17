@@ -10,6 +10,7 @@ public class TemperatureManager : MonoBehaviour
     public Material smile;
     public Material hot;
     public Material cold;
+    public int tempOk = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,17 @@ public class TemperatureManager : MonoBehaviour
         if (inputManager.temperature > 28)
         {
             chFace.GetComponent<MeshRenderer>().material = hot;
+            tempOk = 0;
         }
         else if (inputManager.temperature < 15)
         {
             chFace.GetComponent<MeshRenderer>().material = cold;
+            tempOk = 0;
         }
         else
         {
             chFace.GetComponent<MeshRenderer>().material = smile;
+            tempOk = 1;
         }
     }
 }

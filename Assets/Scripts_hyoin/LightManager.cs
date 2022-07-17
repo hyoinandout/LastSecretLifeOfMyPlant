@@ -16,6 +16,7 @@ public class LightManager : MonoBehaviour
     public float lightNow;
     [Range(0, 255)]
     public byte intensity;
+    public int lightOk = 0;
 
     private void Start()
     {
@@ -35,10 +36,12 @@ public class LightManager : MonoBehaviour
         if (lightNow < 200)
         {
             chFace.GetComponent<MeshRenderer>().material = depress;
+            lightOk = 0;
         }
         else
         {
             chFace.GetComponent<MeshRenderer>().material = smile;
+            lightOk = 1;
         }
     }
     // 조도에 따라서 표정 변화도 있음.

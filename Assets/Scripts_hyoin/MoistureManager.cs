@@ -9,7 +9,7 @@ public class MoistureManager : MonoBehaviour
     public GameObject chFace;
     public Material mad;
     public Material smile;
-
+    public int moistureOk = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,12 @@ public class MoistureManager : MonoBehaviour
         if (inputManager.moisture > 65)
         {
             chFace.GetComponent<MeshRenderer>().material = mad;
+            moistureOk = 0;
         }
         else
         {
             chFace.GetComponent<MeshRenderer>().material = smile;
+            moistureOk = 1;
         }
     }
 }

@@ -10,6 +10,7 @@ public class SoilMoistureManager : MonoBehaviour
     public Material yuck;
     public Material smile;
     public Material hungry;
+    public int soilOk = 0;
     private void Start()
     {
 
@@ -19,14 +20,17 @@ public class SoilMoistureManager : MonoBehaviour
         if (inputManager.dirtMoisture > 250)
         {
             chFace.GetComponent<MeshRenderer>().material = hungry;
+            soilOk = 0;
         }
         else if (inputManager.dirtMoisture < 100)
         {
             chFace.GetComponent<MeshRenderer>().material = yuck;
+            soilOk = 0;
         }
         else
         {
             chFace.GetComponent<MeshRenderer>().material = smile;
+            soilOk = 1;
         }
     }
     //멀리 있을 때는 다 자고 있는데
